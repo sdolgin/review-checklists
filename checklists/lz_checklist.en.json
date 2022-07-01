@@ -84,7 +84,7 @@
     {
       "category": "Identity and Access",
       "subcategory": "Identity",
-      "text": "If any data sovereignty requirements exist, custom user policies can be deployed to enforce them",
+      "text": "If any data sovereignty requirements exist, Azure Policies can be deployed to enforce them",
       "guid": "5a917e1f-348e-4f25-9c27-d42e8bbac757",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/en-gb/learn/paths/secure-your-cloud-data/",
@@ -120,7 +120,7 @@
     {
       "category": "Identity and Access",
       "subcategory": "Identity",
-      "text": "Has Azure AD Application Proxy been considered for remote access to on-premises applications? ",
+      "text": "Consider using Azure AD Application Proxy as a VPN or reverse proxy replacement to give remote users secure and authenticated access to internal applications (hosted in the cloud or on-premises).",
       "guid": "d5d1e4e6-1465-48d3-958f-d77249b82111",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/en-gb/learn/paths/implement-applications-external-access-azure-ad/",
@@ -132,9 +132,9 @@
       "text": "Enforce reasonably flat management group hierarchy with no more than three to four levels, ideally",
       "guid": "2df27ee4-12e7-4f98-9f63-04722dd69c5b",
       "severity": "Medium",
-      "graph": "resourcecontainers| where type == 'microsoft.resources/subscriptions'| extend ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain| extend Compliant =( array_length(mgmtChain) < 4 and array_length(mgmtChain) > 1)",
+      "graph": "resourcecontainers| where type == 'microsoft.resources/subscriptions'| extend ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain| extend compliant =( array_length(mgmtChain) < 4 and array_length(mgmtChain) > 1)",
       "training": "https://docs.microsoft.com/learn/modules/azure-architecture-fundamentals/",
-      "link": "https://docs.microsoft.com/azure/governance/management-groups/overview"
+      "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups"
     },
     {
       "category": "Management Group and Subscriptions",
@@ -142,6 +142,7 @@
       "text": "Enforce or appended resource tags through Azure Policy",
       "guid": "5c2622f5-4b69-4bad-93aa-d5e8c68e1d76",
       "severity": "Medium",
+      "graph": "resources | extend compliant = isnotnull(['tags']) | project name, id, subscriptionId, resourceGroup, tags, compliant",
       "training": "https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security/",
       "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json"
     },
@@ -152,7 +153,7 @@
       "guid": "667313b4-f566-44b5-b984-a859c773e7d2",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/paths/enterprise-scale-architecture/",
-      "link": "https://docs.microsoft.com/azure/governance/management-groups/overview"
+      "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups#management-group-recommendations"
     },
     {
       "category": "Management Group and Subscriptions",
@@ -161,7 +162,7 @@
       "guid": "61623a76-5a91-47e1-b348-ef254c27d42e",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/paths/enterprise-scale-architecture/",
-      "link": "https://docs.microsoft.com/azure/governance/management-groups/overview"
+      "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups#management-group-recommendations"
     },
     {
       "category": "Management Group and Subscriptions",
@@ -170,7 +171,7 @@
       "guid": "8bbac757-1559-4ab9-853e-8908ae28c84c",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/paths/enterprise-scale-architecture/",
-      "link": "https://docs.microsoft.com/azure/governance/management-groups/overview"
+      "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups#management-group-recommendations"
     },
     {
       "category": "Management Group and Subscriptions",
@@ -178,7 +179,8 @@
       "text": "Enforce no subscriptions are placed under the root management group",
       "guid": "33b6b780-8b9f-4e5c-9104-9d403a923c34",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/governance/management-groups/overview"
+      "graph": "resourcecontainers| where type == 'microsoft.resources/subscriptions'| extend ManagementGroup = tostring(tags),mgmtChain = properties.managementGroupAncestorsChain| extend compliant = (array_length(mgmtChain) > 1)",
+      "link": "https://docs.microsoft.com/azure/governance/management-groups/how-to/protect-resource-hierarchy#setting---default-management-group"
     },
     {
       "category": "Management Group and Subscriptions",
@@ -186,7 +188,7 @@
       "text": "Enforce that only privileged users can operate management groups in the tenant by enabling Azure RBAC authorization in the management group hierarchy settings",
       "guid": "74d00018-ac6a-49e0-8e6a-83de5de32c19",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/governance/management-groups/overview"
+      "link": "https://docs.microsoft.com/azure/governance/management-groups/how-to/protect-resource-hierarchy#setting---require-authorization"
     },
     {
       "category": "Management Group and Subscriptions",
@@ -263,8 +265,9 @@
       "text": "Ensure tags are used for billing and cost management",
       "guid": "5de32c19-9248-4160-9d5d-1e4e614658d3",
       "severity": "Medium",
+      "graph": "resources | extend compliant = isnotnull(['tags']) | project name, id, subscriptionId, resourceGroup, tags, compliant",
       "training": "https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security/",
-      "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json"
+      "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/track-costs"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -281,7 +284,7 @@
       "text": "Ensure to use IP addresses from the address allocation for private internets (RFC 1918).",
       "guid": "3f630472-2dd6-49c5-a5c2-622f54b69bad",
       "severity": "Medium",
-      "graph": "resources | where type == 'microsoft.network/virtualnetworks' | extend addressSpace = todynamic(properties.addressSpace) | extend addressPrefix = todynamic(properties.addressSpace.addressPrefixes) | mvexpand addressSpace | mvexpand addressPrefix | project name, id, location, resourceGroup, subscriptionId, cidr = addressPrefix | extend Compliant = (cidr matches regex @'^(10(\\\\.(25[0-5]|2[0-4][0-9]|1[0-9]{1,2}|[0-9]{1,2})){3}|((172\\\\.(1[6-9]|2[0-9]|3[01]))|192\\\\.168)(\\\\.(25[0-5]|2[0-4][0-9]|1[0-9]{1,2}|[0-9]{1,2})){2})')  | project name, id, subscriptionId, resourceGroup,Compliant,cidr",
+      "graph": "resources | where type == 'microsoft.network/virtualnetworks' | extend addressSpace = todynamic(properties.addressSpace) | extend addressPrefix = todynamic(properties.addressSpace.addressPrefixes) | mvexpand addressSpace | mvexpand addressPrefix | project name, id, location, resourceGroup, subscriptionId, cidr = addressPrefix | extend compliant = (cidr matches regex @'^(10(\\\\.(25[0-5]|2[0-4][0-9]|1[0-9]{1,2}|[0-9]{1,2})){3}|((172\\\\.(1[6-9]|2[0-9]|3[01]))|192\\\\.168)(\\\\.(25[0-5]|2[0-4][0-9]|1[0-9]{1,2}|[0-9]{1,2})){2})')  | project name, id, subscriptionId, resourceGroup, compliant, cidr",
       "training": "https://docs.microsoft.com/en-gb/learn/paths/architect-network-infrastructure/",
       "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing"
     },
@@ -291,7 +294,7 @@
       "text": "Ensure that IP address space isn't wasted, don't create unnecessarily large virtual networks (for example /16) ",
       "guid": "33aad5e8-c68e-41d7-9667-313b4f5664b5",
       "severity": "Medium",
-      "graph": "resources | where type == 'microsoft.network/virtualnetworks' | extend addressSpace = todynamic(properties.addressSpace) | extend addressPrefix = todynamic(properties.addressSpace.addressPrefixes) | mvexpand addressSpace | mvexpand addressPrefix | extend addressMask = split(addressPrefix,'/')[1] | extend Compliant = addressMask >= 16 | project name, id, subscriptionId, resourceGroup, addressPrefix, Compliant",
+      "graph": "resources | where type == 'microsoft.network/virtualnetworks' | extend addressSpace = todynamic(properties.addressSpace) | extend addressPrefix = todynamic(properties.addressSpace.addressPrefixes) | mvexpand addressSpace | mvexpand addressPrefix | extend addressMask = split(addressPrefix,'/')[1] | extend compliant = addressMask >= 16 | project name, id, subscriptionId, resourceGroup, addressPrefix, compliant",
       "training": "https://docs.microsoft.com/en-gb/learn/paths/architect-network-infrastructure/",
       "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing"
     },
@@ -311,7 +314,7 @@
       "guid": "f348ef25-4c27-4d42-b8bb-ac7571559ab9",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/en-gb/learn/paths/az-104-manage-virtual-networks/",
-      "link": "https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances"
+      "link": "https://docs.microsoft.com/azure/site-recovery/concepts-on-premises-to-azure-networking#retain-ip-addresses"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -493,11 +496,11 @@
     {
       "category": "Network Topology and Connectivity",
       "subcategory": "Hub and spoke",
-      "text": "For network architectures with multiple hub-and-spoke topologies across Azure regions, use global virtual network peering to connect landing-zone virtual networks when a small number of landing zones need to communicate across regions. ",
+      "text": "For network architectures with multiple hub-and-spoke topologies across Azure regions, use Global Virtual Network Peering to connect landing-zone virtual networks when a small number of landing zones need to communicate across regions. ",
       "guid": "cc881471-607c-41cc-a0e6-14658dd558f9",
       "severity": "Medium",
-      "training": "https://docs.microsoft.com/en-gb/learn/paths/azure-administrator-manage-virtual-networks/",
-      "link": "https://docs.microsoft.com/azure/expressroute/expressroute-faqs"
+      "training": "https://docs.microsoft.com/learn/paths/azure-administrator-manage-virtual-networks/",
+      "link": "https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -515,7 +518,7 @@
       "guid": "4722d929-c1b1-4cd6-81f5-4b29bade39ad",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/modules/design-implement-network-monitoring/",
-      "link": "https://docs.microsoft.com/azure/expressroute/expressroute-faqs"
+      "link": "https://docs.microsoft.com/azure/azure-monitor/insights/network-insights-overview"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -523,7 +526,7 @@
       "text": "When connecting spoke virtual networks to the central hub virtual network, consider VNet peering limits and the maximum number of prefixes that can be advertised via ExpressRoute",
       "guid": "0e7c28ec-9366-4572-83b0-f4664b1d944a",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/azure-monitor/insights/network-insights-overview"
+      "link": "https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/virtual-network/toc.json#azure-resource-manager-virtual-networking-limits"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -549,6 +552,7 @@
       "text": "Ensure that you're using the right SKU for the ExpressRoute/VPN gateways based on bandwidth and performance requirements.",
       "guid": "d4cd21b0-8813-47f5-b6c4-cfd3e504547c",
       "severity": "Medium",
+      "graph": "resources| where type == 'microsoft.network/virtualnetworkgateways'| where properties.gatewayType =~ 'vpn' or properties.gatewayType == 'ExpressRoute'| extend SKUName = properties.sku.name, SKUTier = properties.sku.tier, Type = properties.gatewayType| extend compliant = SKUTier !in ('Basic', 'Standard')| project name, id, subscriptionId, resourceGroup, compliant",
       "training": "https://docs.microsoft.com/learn/modules/design-implement-azure-expressroute/",
       "link": "https://docs.microsoft.com/azure/expressroute/expressroute-routing"
     },
@@ -558,6 +562,7 @@
       "text": "Deploy a zone-redundant ExpressRoute gateway in the supported Azure regions.",
       "guid": "2447ec66-138a-4720-8f1c-e16ed301d6e8",
       "severity": "Medium",
+      "graph": "resources| where type == 'microsoft.network/virtualnetworkgateways'| where properties.gatewayType =~ 'vpn' or properties.gatewayType == 'ExpressRoute'| extend SKUName = properties.sku.name, SKUTier = properties.sku.tier, Type = properties.gatewayType| extend compliant = SKUTier contains 'AZ'| project name, id, subscriptionId, resourceGroup, Type, compliant",
       "training": "https://docs.microsoft.com/learn/modules/design-implement-azure-expressroute/",
       "link": "https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways"
     },
@@ -604,7 +609,7 @@
       "guid": "8042d88e-79d1-47b7-9b22-a5a67e7a8ed4",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/modules/design-implement-azure-expressroute/",
-      "link": "https://docs.microsoft.com/azure/networking/"
+      "link": "https://docs.microsoft.com/azure/architecture/framework/services/networking/expressroute/reliability"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -631,7 +636,7 @@
       "guid": "e0d5973c-d4cd-421b-8881-37f5e6c4cfd3",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/modules/design-implement-azure-expressroute/",
-      "link": "https://docs.microsoft.com/azure/networking/"
+      "link": "https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering#challenges-of-using-multiple-expressroute-circuits"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -757,7 +762,7 @@
       "guid": "1d7aa9b6-4704-4489-a804-2d88e79d17b7",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/paths/secure-application-delivery/",
-      "link": "https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview"
+      "link": "https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -784,7 +789,7 @@
       "guid": "088137f5-e6c4-4cfd-9e50-4547c2447ec6",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/paths/secure-networking-infrastructure/",
-      "link": "https://azure.microsoft.com/solutions/network-appliances/"
+      "link": "https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -860,12 +865,30 @@
     },
     {
       "category": "Network Topology and Connectivity",
+      "subcategory": "App delivery",
+      "text": "If users only need access to internal applications, has Azure AD Application Proxy been considered as an alternative to Azure Virtual Desktop (AVD)?",
+      "guid": "3b4b3e88-a459-4ed5-a22f-644dfbc58204",
+      "severity": "Low",
+      "training": "https://docs.microsoft.com/learn/modules/configure-azure-ad-application-proxy/",
+      "link": "https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy#how-application-proxy-works"
+    },
+    {
+      "category": "Network Topology and Connectivity",
       "subcategory": "Segmentation",
       "text": "Delegate subnet creation to the landing zone owner. ",
       "guid": "c2447ec6-6138-4a72-80f1-ce16ed301d6e",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security/",
-      "link": "https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview"
+      "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-landing-zone-network-segmentation"
+    },
+    {
+      "category": "Network Topology and Connectivity",
+      "subcategory": "App delivery",
+      "text": "To reduce the number of firewall ports open for incoming connections in your network, consider using Azure AD Application Proxy to give remote users secure and authenticated access to internal applications.",
+      "guid": "01ca7cf1-5754-442d-babb-8ba6772e5c30",
+      "severity": "Medium",
+      "training": "https://docs.microsoft.com/learn/paths/implement-applications-external-access-azure-ad/",
+      "link": "https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy#how-application-proxy-works"
     },
     {
       "category": "Network Topology and Connectivity",
@@ -879,7 +902,7 @@
     {
       "category": "Network Topology and Connectivity",
       "subcategory": "Segmentation",
-      "text": "The application team should use application security groups at the subnet-level NSGs to help protect multitier VMs within the landing zone.",
+      "text": "The application team should use application security groups at the subnet-level NSGs to help protect multi-tier VMs within the landing zone.",
       "guid": "9c2299c4-d7b5-47d0-a655-562f2b3e4563",
       "severity": "Medium",
       "training": "https://docs.microsoft.com/learn/paths/implement-network-security/",
@@ -1055,7 +1078,7 @@
       "subcategory": "Monitoring",
       "text": "Use deny policies to supplement Azure role assignments. The combination of deny policies and Azure role assignments ensures the appropriate guardrails are in place to enforce who can deploy and configure resources and what resources they can deploy and configure.",
       "guid": "a6e55d7d-8a2a-4db1-87d6-326af625ca44",
-      "severity": "Medium",
+      "severity": "Low",
       "link": "https://docs.microsoft.com/azure/governance/policy/overview"
     },
     {
@@ -1064,7 +1087,7 @@
       "text": "Include service and resource health events as part of the overall platform monitoring solution. Tracking service and resource health from the platform perspective is an important component of resource management in Azure.",
       "guid": "e5695f22-23ac-4e8c-a123-08ca5017f154",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/?product=featured"
+      "link": "https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal"
     },
     {
       "category": "Management and Monitoring",
@@ -1120,7 +1143,7 @@
       "text": "Employ Azure Site Recovery for Azure-to-Azure Virtual Machines disaster recovery scenarios. This enables you to replicate workloads across regions.",
       "guid": "2476e49f-541a-4cdc-b979-377bcdb3751a",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/backup/backup-center-overview"
+      "link": "https://docs.microsoft.com/azure/site-recovery/site-recovery-overview"
     },
     {
       "category": "Management and Monitoring",
@@ -1152,7 +1175,7 @@
       "text": "Use different Azure Key Vaults for different applications and regions to avoid transaction scale limits and restrict access to secrets.",
       "guid": "a0477a20-9945-4bda-9333-4f2491163418",
       "severity": "Medium",
-      "graph": "ResourceContainers | where type=='microsoft.resources/subscriptions'| parse id with '/subscriptions/' SubscriptionID| project subscriptionId, SubscriptionName = name| join kind=leftouter (Resources| where type == 'microsoft.keyvault/vaults'| project id, name, subscriptionId) on subscriptionId| join kind= leftouter (Resources| where type == 'microsoft.keyvault/vaults'| summarize ResourceCount = count() by subscriptionId) on subscriptionId| extend RCount = iff(isnull(ResourceCount), 0, ResourceCount)| project-away ResourceCount| extend Compliant = (RCount <> 1)",
+      "graph": "ResourceContainers | where type=='microsoft.resources/subscriptions'| parse id with '/subscriptions/' SubscriptionID| project subscriptionId, SubscriptionName = name| join kind=leftouter (Resources| where type == 'microsoft.keyvault/vaults'| project id, name, subscriptionId) on subscriptionId| join kind= leftouter (Resources| where type == 'microsoft.keyvault/vaults'| summarize ResourceCount = count() by subscriptionId) on subscriptionId| extend RCount = iff(isnull(ResourceCount), 0, ResourceCount)| project-away ResourceCount| extend compliant = (RCount <> 1)",
       "link": "https://docs.microsoft.com/azure/key-vault/general/overview-throttling"
     },
     {
@@ -1201,7 +1224,7 @@
       "text": "Use the platform-central Azure Monitor Log Analytics workspace to audit key, certificate, and secret usage within each instance of Key Vault.",
       "guid": "17d6326a-f625-4ca4-9e56-95f2223ace8c",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/key-vault/general/best-practices"
+      "link": "https://docs.microsoft.com/azure/key-vault/general/monitor-key-vault"
     },
     {
       "category": "Security, Governance and Compliance",
@@ -1217,7 +1240,7 @@
       "text": "Default to Microsoft-managed keys for principal encryption functionality and use customer-managed keys when required.",
       "guid": "16183687-a047-47a2-8994-5bda43334f24",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/key-vault/general/best-practices"
+      "link": "https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest"
     },
     {
       "category": "Security, Governance and Compliance",
@@ -1313,7 +1336,7 @@
       "text": "Use Azure policies to automatically deploy software configurations through VM extensions and enforce a compliant baseline VM configuration.",
       "guid": "f541acdc-e979-4377-acdb-3751ab2ab13a",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/governance/policy/overview"
+      "link": "https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration"
     },
     {
       "category": "Security, Governance and Compliance",
@@ -1321,7 +1344,7 @@
       "text": "Monitor VM security configuration drift via Azure Policy.",
       "guid": "da6e55d7-d8a2-4adb-817d-6326af625ca4",
       "severity": "Medium",
-      "link": "https://docs.microsoft.com/azure/governance/policy/overview"
+      "link": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-operational-compliance#monitoring-for-configuration-drift"
     },
     {
       "category": "Security, Governance and Compliance",
@@ -1377,7 +1400,7 @@
       "text": "Implement a zero-trust approach for access to the Azure platform, where appropriate.",
       "guid": "01365d38-e43f-49cc-ad86-8266abca264f",
       "severity": "Medium",
-      "link": "https://www.microsoft.com/itshowcase/implementing-a-zero-trust-security-model-at-microsoft"
+      "link": "https://www.microsoft.com/security/business/zero-trust"
     },
     {
       "category": "Security, Governance and Compliance",
@@ -1431,6 +1454,10 @@
     {
       "name": "Fulfilled",
       "description": "This check has been verified, and there are no further action items associated to it"
+    },
+    {
+      "name": "Not required",
+      "description": "Recommendation understood, but not needed by current requirements"
     },
     {
       "name": "N/A",

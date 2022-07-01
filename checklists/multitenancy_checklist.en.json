@@ -1,4 +1,5 @@
 {
+  "$schema": "checklist.schema.json",
   "items": [
     {
       "category": "Business",
@@ -290,6 +291,10 @@
     {
       "name": "Fulfilled",
       "description": "This check has been verified, and there are no further action items associated to it"
+    },
+    {
+      "name": "Not required",
+      "description": "Recommendation understood, but not needed by current requirements"
     },
     {
       "name": "N/A",

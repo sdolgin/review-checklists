@@ -1,4 +1,60 @@
 {
+  "metadata": {
+    "name": "Revisión de la solución Azure VMware"
+  },
+  "severities": [
+    {
+      "name": "Alto"
+    },
+    {
+      "name": "Medio"
+    },
+    {
+      "name": "Bajo"
+    }
+  ],
+  "status": [
+    {
+      "name": "No verificado",
+      "description": "Esta comprobación aún no se ha analizado"
+    },
+    {
+      "name": "Abrir",
+      "description": "Hay un elemento de acción asociado a esta comprobación"
+    },
+    {
+      "name": "Cumplido",
+      "description": "Esta comprobación se ha verificado y no hay más elementos de acción asociados a ella"
+    },
+    {
+      "name": "No es necesario",
+      "description": "Recomendación entendida, pero no necesaria por los requisitos actuales"
+    },
+    {
+      "name": "N/A",
+      "description": "No aplicable para el diseño actual"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Identidad"
+    },
+    {
+      "name": "Gestión de redes"
+    },
+    {
+      "name": "Gobernanza"
+    },
+    {
+      "name": "Administración"
+    },
+    {
+      "name": "BCDR"
+    },
+    {
+      "name": "Automatización de la plataforma"
+    }
+  ],
   "items": [
     {
       "category": "Identidad",
@@ -502,7 +558,7 @@
       "category": "BCDR",
       "subcategory": "Continuidad del negocio",
       "text": "Implemente la solución de copia de seguridad en la misma región que la nube privada de Azure VMware Solution",
-      "guid": "bd352caa-ab79-4b18-manners-81932c9fc9d1",
+      "guid": "bd352caa-ab79-4b18-adab-81932c9fc9d1",
       "severity": "Medio"
     },
     {
@@ -623,54 +679,6 @@
       "text": "Implementar reglas de supervisión para supervisar las operaciones de escalado automatizadas y supervisar el éxito y el fracaso para permitir respuestas apropiadas (automatizadas)",
       "guid": "1DC15A1C-075E-4E9F-841A-CCCD579376BC",
       "severity": "Medio"
-    }
-  ],
-  "severities": [
-    {
-      "name": "Alto"
-    },
-    {
-      "name": "Medio"
-    },
-    {
-      "name": "Bajo"
-    }
-  ],
-  "metadata": {
-    "name": "Revisión de la solución Azure VMware"
-  },
-  "status": [
-    {
-      "name": "No verificado"
-    },
-    {
-      "name": "Abrir"
-    },
-    {
-      "name": "Cumplido"
-    },
-    {
-      "name": "N/A"
-    }
-  ],
-  "categories": [
-    {
-      "name": "Identidad"
-    },
-    {
-      "name": "Gestión de redes"
-    },
-    {
-      "name": "Gobernanza"
-    },
-    {
-      "name": "Administración"
-    },
-    {
-      "name": "BCDR"
-    },
-    {
-      "name": "Automatización de la plataforma"
     }
   ]
 }

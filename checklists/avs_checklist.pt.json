@@ -1,4 +1,60 @@
 {
+  "metadata": {
+    "name": "Revisão da solução Azure VMware"
+  },
+  "severities": [
+    {
+      "name": "Alto"
+    },
+    {
+      "name": "Média"
+    },
+    {
+      "name": "Baixo"
+    }
+  ],
+  "status": [
+    {
+      "name": "Não verificado",
+      "description": "Este cheque ainda não foi examinado."
+    },
+    {
+      "name": "Abrir",
+      "description": "Há um item de ação associado a este cheque"
+    },
+    {
+      "name": "Cumprido",
+      "description": "Esta verificação foi verificada, e não há mais itens de ação associados a ele"
+    },
+    {
+      "name": "Não é necessário",
+      "description": "Recomendação compreendida, mas não necessária pelos requisitos atuais"
+    },
+    {
+      "name": "N/A",
+      "description": "Não é aplicável para o design atual"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Identidade"
+    },
+    {
+      "name": "Rede"
+    },
+    {
+      "name": "Governança"
+    },
+    {
+      "name": "Gestão"
+    },
+    {
+      "name": "BCDR"
+    },
+    {
+      "name": "Automação de plataformas"
+    }
+  ],
   "items": [
     {
       "category": "Identidade",
@@ -347,7 +403,7 @@
     {
       "category": "Gestão",
       "subcategory": "Monitorização",
-      "text": "Crie alertas para alertas críticos para alerta automático sobre o desempenho da solução Azure VMware (CPU >80%, Memória Avg >80%, vSAN >70%)",
+      "text": "Crie alertas para limiares críticos para alerta automático sobre o desempenho da solução Azure VMware (CPU >80%, Avg Memory >80%, vSAN >70%)",
       "guid": "6b84ee5d-f47d-42d9-8881-b1cd5d1e54a2",
       "severity": "Alto"
     },
@@ -502,7 +558,7 @@
       "category": "BCDR",
       "subcategory": "Continuidade de Negócios",
       "text": "Implante sua solução de backup na mesma região que sua nuvem privada Azure VMware Solution",
-      "guid": "bd352caa-ab79-4b18-manners-81932c9fc9d1",
+      "guid": "bd352caa-ab79-4b18-adab-81932c9fc9d1",
       "severity": "Média"
     },
     {
@@ -623,54 +679,6 @@
       "text": "Implementar regras de monitoramento para monitorar operações automatizadas de dimensionamento e monitorar o sucesso e a falha para permitir respostas apropriadas (automatizadas)",
       "guid": "1dc15a1c-075e-4e9f-841a-cccd579376bc",
       "severity": "Média"
-    }
-  ],
-  "severities": [
-    {
-      "name": "Alto"
-    },
-    {
-      "name": "Média"
-    },
-    {
-      "name": "Baixo"
-    }
-  ],
-  "metadata": {
-    "name": "Revisão da solução Azure VMware"
-  },
-  "status": [
-    {
-      "name": "Não verificado"
-    },
-    {
-      "name": "Abrir"
-    },
-    {
-      "name": "Cumprido"
-    },
-    {
-      "name": "N/A"
-    }
-  ],
-  "categories": [
-    {
-      "name": "Identidade"
-    },
-    {
-      "name": "Rede"
-    },
-    {
-      "name": "Governança"
-    },
-    {
-      "name": "Gestão"
-    },
-    {
-      "name": "BCDR"
-    },
-    {
-      "name": "Automação de plataformas"
     }
   ]
 }

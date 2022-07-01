@@ -4,11 +4,24 @@
 
 ![](./pictures/overview.png)
 
-[latest release](https://github.com/Azure/review-checklists/releases/latest/download/review_checklist.xlsm)
+Quick links for using the checklists in this repo:
 
-**New**: Check out as well our sister repo [https://github.com/Azure/fta-aas](https://github.com/Azure/fta-aas), and the prototype web UI for checklist reviews in [https://ftaaasdev.z6.web.core.windows.net/](https://ftaaasdev.z6.web.core.windows.net/).
+- [Latest release of the Excel spreadsheet](https://github.com/Azure/review-checklists/releases/latest/download/review_checklist.xlsm)
+- [https://aka.ms/ftaaas](https://aka.ms/ftaaas) for a web frontend (check out our sister repo [https://github.com/Azure/fta-aas](https://github.com/Azure/fta-aas)).
 
-## What is an Azure Review?
+Summary of checklists supported and the respective responsible owners:
+
+| Checklist | Status | CodeOwners |
+| --- | --- | --- |
+| LZ  | GA | [@alejandra8481](https://github.com/alejandra8481) [@anbengts](https://github.com/anbengts) [@sdolgin](https://github.com/sdolgin) [@akasnik](https://github.com/akasnik) [@Kiwibayer](https://github.com/Kiwibayer) |
+| AKS | GA | [@msftnadavbh](https://github.com/msftnadavbh) [@seenu433](https://github.com/seenu433) [@erjosito](https://github.com/erjosito) |
+| AVD | GA | [@igorpag](https://github.com/igorpag) [@mikewarr](https://github.com/mikewarr) [@bagwyth](https://github.com/bagwyth) |
+| Multitenancy | GA | [@arsenvlad](https://github.com/arsenvlad) [@johndowns](https://github.com/johndowns) [@cherchyk](https://github.com/cherchyk) |
+| Security | GA | [@mgodfrey50](https://github.com/mgodfrey50) [@rudneir2](https://github.com/rudneir2) |
+| AVS | Preview | [@fskelly](https://github.com/fskelly) [@mgodfrey50](https://github.com/mgodfrey50) [@Kiwibayer](https://github.com/Kiwibayer) [@robinher](https://github.com/robinher) |
+| SAP | Preview | [@AlastairMorrison](https://github.com/AlastairMorrison) [@videshmukh](https://github.com/videshmukh) |
+
+## What is an Azure Design Review?
 
 A common request of many organizations starting with public cloud is having their design double-checked to make sure that best practices are being followed. One of the teams in Microsoft providing this kind of design reviews and guidance is [FastTrack for Azure (FTA)](https://azure.microsoft.com/programs/azure-fasttrack/), part of Azure Engineering at Microsoft.
 
@@ -29,6 +42,7 @@ Please feel free to open an issue or create a PR if you find any error or missin
 ## Using the spreadsheet for Azure reviews
 
 1. Download the Excel spreadsheet from the [latest release](https://github.com/Azure/review-checklists/releases/latest/download/review_checklist.xlsm) to your PC
+
 2. Use the dropdown lists to select the technology and language you would like to do your review
 
 ![](./pictures/spreadsheet_screenshot.png)
@@ -47,6 +61,27 @@ Please feel free to open an issue or create a PR if you find any error or missin
 
 ![](./pictures/spreadsheet_screenshot_dashboard.png)
 
+## Security settings running macros
+
+There are some settings that you might need to change in your system to run macro-enabled Excel spreadsheets. When initially opening the file you may see the following error, which prevents Excel from loading:
+
+> Excel cannot open the file 'review_checklist.xlsm' because the file format or file extension is not valid. Verify that the file has not been corrupted and that the file extension matches the format of the file.
+
+In other cases the file opens with the following message, which prevents you from being able to load the checklist items:
+
+![macro warning in excel](./pictures/macro_warning.png)
+
+### Unblock file or add an exception to Windows Security
+
+1. You might need to unblock the file from the file properties in the Windows File Explorer, so that you can use the macros required to import the checklist content from github.com:
+
+![how to unblock a file to run macros](./pictures/unblock.png)
+
+2. Additionally, you might want to add the folder where you cloned this repo to the list of exceptions in Windows Security (in the Virus & Threat Protection section):
+
+![how to add an exception to windows security](./pictures/defender_settings.png)
+
+
 ## Using the spreadsheet to generate JSON checklist files (advanced)
 
 If you wish to do contributions to the checklists, one option is the following:
@@ -58,17 +93,18 @@ If you wish to do contributions to the checklists, one option is the following:
 
 ## Using Azure Resource Graph to verify Azure environments (advanced)
 
-As you can see for example in [aks_checklist.en.json](./checklists/aks_checklist.en.json), some of the checks have associated two [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) queries: one for Azure resources satisfying the condition ("success"), and another one for Azure resources that do not satisfy the condition ("failure").
+Some of the checks have associated [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) queries, which return a list of related resources and a compliance status for each. Resource Graph queries enable objective verification of the associated checks and make filling out the spreadsheet easier by collecting some environment details for you. 
 
-Accompanying the spreadsheet this repo includes the script [checklist_graph.sh](./scripts/checklist_graph.sh). This script will run the graph queries stored in the JSON checklists and produce an output that can easily be copied and pasted into the spreadsheet, or alternatively generate a JSON file that can then be imported to the spreadsheet.
+Along with the spreadsheet, this repo includes the script [checklist_graph.sh](./scripts/checklist_graph.sh). This script will run the graph queries stored in the JSON checklists and produce an output that can easily be copied and pasted into the spreadsheet, or alternatively generate a JSON file that can then be imported to the spreadsheet.
 
 See the [checklist_graph.sh README file](./scripts/README.md) for more information about how to use [checklist_graph.sh](./scripts/checklist_graph.sh).
 
 ## Disclaimer
 
-This is not official Microsoft documentation or software.This is not an endorsement or sign-off of an architecture or a design.
-This code-sample is provided "AS IT IS" without warranty of any kind, either expressed or implied, including but not limited to the implied warranties of merchantability and/or fitness for a particular purpose.
-This sample is not supported under any Microsoft standard support program or service.
-Microsoft further disclaims all implied warranties, including, without limitation, any implied warranties of merchantability or fitness for a particular purpose.
-The entire risk arising out of the use or performance of the sample and documentation remains with you.
-In no event shall Microsoft, its authors, or anyone else involved in the creation, production, or delivery of the script be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or other pecuniary loss) arising out of the use of or inability to use the sample or documentation, even if Microsoft has been advised of the possibility of such damages
+- This is not official Microsoft documentation or software.
+- This is not an endorsement or a sign-off of an architecture or a design.
+- This code-sample is provided "AS IT IS" without warranty of any kind, either expressed or implied, including but not limited to the implied warranties of merchantability and/or fitness for a particular purpose.
+- This sample is not supported under any Microsoft standard support program or service.
+- Microsoft further disclaims all implied warranties, including, without limitation, any implied warranties of merchantability or fitness for a particular purpose.
+- The entire risk arising out of the use or performance of the sample and documentation remains with you.
+- In no event shall Microsoft, its authors, or anyone else involved in the creation, production, or delivery of the script be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or other pecuniary loss) arising out of the use of or inability to use the sample or documentation, even if Microsoft has been advised of the possibility of such damages
