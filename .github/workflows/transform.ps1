@@ -39,6 +39,17 @@ Foreach ($file in $files) {
 
     write-host "Processing file $file"
     $json = Get-Content -Raw $file | ConvertFrom-Json
+
+    # grab the content of the english file version of the checklist
+    $en_file = $file -replace "(.{2}\.json)", "en.json"
+    $en_json = Get-Content -Raw $en_file | ConvertFrom-Json
+
+    # replace any graph queries that were translated by error with the query from the english file version 
+    $en_graphItems = $en_json.items.Where({$_.graph})
+    foreach ($graphItem in $en_graphItems) {
+        $query = $graphItem.graph
+        $json.items.Where({$_.guid -eq $graphItem.guid})[0].graph = $query
+    }
     
     # initialize the output file structure
     $output = @{
@@ -80,6 +91,8 @@ Foreach ($file in $files) {
 
     # clone the metadata object to the output (does not need to convert)
     $output.metadata = $json.metadata
+
+
     
     # overwrite the original file with the new json
     $output | ConvertTo-JSON | Out-File ($file) -Encoding UTF8
