@@ -789,7 +789,16 @@
       "simple": 1,
       "severity": "Low",
       "link": "https://dapr.io/"
-    }
+    },
+    {
+      "category": "Application Deployment",
+      "subcategory": "Development",
+      "text": "Use Istio for something",
+      "guid": "26886d20-b66c-457b-a693-19bf8e8f5c58",
+      "simple": 1,
+      "severity": "Low",
+      "link": "https://ist.io/"
+    }    
   ],
   "categories": [
     {
