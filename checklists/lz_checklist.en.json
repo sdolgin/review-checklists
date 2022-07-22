@@ -1417,7 +1417,15 @@
       "guid": "ae514b93-3d45-485e-8112-9bd7ba012f7b",
       "severity": "Medium",
       "link": "https://docs.microsoft.com/security/benchmark/azure/security-control-incident-response"
-    }
+    },
+    {
+      "category": "Security, Governance and Compliance",
+      "subcategory": "Security",
+      "text": "Do things correctly",
+      "guid": "ae514b93-3d45-186e-8112-9bd7ba012f7b",
+      "severity": "Medium",
+      "link": "https://docs.microsoft.com/security/benchmark/azure/security-control-incident-response"
+    }    
   ],
   "categories": [
     {
