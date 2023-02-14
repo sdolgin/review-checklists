@@ -8,7 +8,7 @@
         {
             "category": "Seguridad",
             "description": "Azure Service Bus Premium proporciona cifrado de datos en reposo. Si usa su propia clave, los datos aún se cifran con la clave administrada por Microsoft, pero además la clave administrada por Microsoft se cifrará con la clave administrada por el cliente. ",
-            "guid": "87af4a79-1f89-439b-ba47-768e14c11567",
+            "guid": "87af4a79-1f89-439b-ba47-768a14c11567",
             "link": "https://learn.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key",
             "severity": "Bajo",
             "subcategory": "Protección de datos",
@@ -87,7 +87,8 @@
         }
     ],
     "metadata": {
-        "name": "Azure Service Bus Review"
+        "name": "Azure Service Bus Review",
+        "state": "Preview"
     },
     "severities": [
         {

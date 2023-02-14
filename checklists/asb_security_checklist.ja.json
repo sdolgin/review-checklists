@@ -8,7 +8,7 @@
         {
             "category": "安全",
             "description": "Azure サービス バス プレミアムでは、保存データの暗号化が提供されます。独自のキーを使用する場合、データは引き続き Microsoft マネージド キーを使用して暗号化されますが、さらに Microsoft マネージド キーはカスタマー マネージド キーを使用して暗号化されます。",
-            "guid": "87af4a79-1f89-439b-ba47-768e14c11567",
+            "guid": "87af4a79-1f89-439b-ba47-768a14c11567",
             "link": "https://learn.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key",
             "severity": "低い",
             "subcategory": "データ保護",
@@ -87,7 +87,8 @@
         }
     ],
     "metadata": {
-        "name": "Azure Service Bus Review"
+        "name": "Azure Service Bus Review",
+        "state": "Preview"
     },
     "severities": [
         {
