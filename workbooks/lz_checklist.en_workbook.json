@@ -49,7 +49,7 @@
                 "style": "tabs",
                 "links": [
                     {
-                        "id": "de597928-9933-4cbf-82f7-177a28d5bf64",
+                        "id": "4225e1c4-8b11-48d4-83e9-dcf9efa194e0",
                         "cellValue": "VisibleTab",
                         "linkTarget": "parameter",
                         "linkLabel": "Identity and Access",
@@ -58,7 +58,7 @@
                         "style": "primary"
                     },
                     {
-                        "id": "0b980865-3957-4826-8bfb-04627decd07b",
+                        "id": "9ffdec42-5496-47eb-a1e0-49299c082819",
                         "cellValue": "VisibleTab",
                         "linkTarget": "parameter",
                         "linkLabel": "Network Topology and Connectivity",
@@ -67,7 +67,7 @@
                         "style": "primary"
                     },
                     {
-                        "id": "0377e066-1e49-430e-8398-2f817ff4b699",
+                        "id": "1761db6e-00bf-4a85-9d30-791a0e0c222c",
                         "cellValue": "VisibleTab",
                         "linkTarget": "parameter",
                         "linkLabel": "Security, Governance and Compliance",
@@ -76,7 +76,7 @@
                         "style": "primary"
                     },
                     {
-                        "id": "3e5309d5-53ac-4517-b078-93a56165aa4e",
+                        "id": "7406b845-cde6-4929-a669-0defef76e143",
                         "cellValue": "VisibleTab",
                         "linkTarget": "parameter",
                         "linkLabel": "Management and Monitoring",
@@ -85,7 +85,7 @@
                         "style": "primary"
                     },
                     {
-                        "id": "60c28d2e-e00e-4fef-89bf-69306c3a3607",
+                        "id": "bec373f1-ffc0-4038-ae79-594489730934",
                         "cellValue": "VisibleTab",
                         "linkTarget": "parameter",
                         "linkLabel": "Management Group and Subscriptions",
@@ -94,7 +94,7 @@
                         "style": "primary"
                     },
                     {
-                        "id": "03164b4f-a699-4c47-8276-e51538b048f4",
+                        "id": "97373b42-d42b-4f1d-8c78-e790020e47c7",
                         "cellValue": "VisibleTab",
                         "linkTarget": "parameter",
                         "linkLabel": "Operations",
