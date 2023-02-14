@@ -103,7 +103,7 @@
         },
         {
             "category": "안전",
-            "description": "새로 만든 저장소 계정은 ARM 배포 모델을 사용하여 만들어지므로 RBAC, 감사 등이 수행됩니다. 모두 사용할 수 있습니다. 구독에 클래식 배포 모델을 사용하는 이전 저장소 계정이 없는지 확인",
+            "description": "새로 만든 저장소 계정은 ARM 배포 모델을 사용하여 만들어지므로 RBAC, 감사 등을 모두 사용할 수 있습니다. 구독에 클래식 배포 모델을 사용하는 이전 저장소 계정이 없는지 확인",
             "guid": "30e37c3e-2971-41b2-963c-eee079b598de",
             "link": "https://learn.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts",
             "severity": "보통",

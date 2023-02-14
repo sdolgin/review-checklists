@@ -103,7 +103,7 @@
         },
         {
             "category": "Seguridad",
-            "description": "Las cuentas de almacenamiento recién creadas se crean utilizando el modelo de implementación de ARM, de modo que RBAC, auditoría, etc. están todos habilitados. Asegúrese de que no haya cuentas de almacenamiento antiguas con el modelo de implementación clásica en una suscripción",
+            "description": "Las cuentas de almacenamiento recién creadas se crean mediante el modelo de implementación de ARM, de modo que RBAC, auditoría, etc. están habilitados. Asegúrese de que no haya cuentas de almacenamiento antiguas con el modelo de implementación clásica en una suscripción",
             "guid": "30e37c3e-2971-41b2-963c-eee079b598de",
             "link": "https://learn.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts",
             "severity": "Medio",

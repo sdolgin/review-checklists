@@ -103,7 +103,7 @@
         },
         {
             "category": "安全",
-            "description": "新しく作成されたストレージ アカウントは、ARM デプロイ モデルを使用して作成されるため、RBAC、監査などが行われます。すべて有効になっています。サブスクリプションにクラシック デプロイ モデルの古いストレージ アカウントがないことを確認する",
+            "description": "新しく作成されたストレージ アカウントは、ARM デプロイ モデルを使用して作成されるため、RBAC、監査などがすべて有効になります。サブスクリプションにクラシック デプロイ モデルの古いストレージ アカウントがないことを確認する",
             "guid": "30e37c3e-2971-41b2-963c-eee079b598de",
             "link": "https://learn.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts",
             "severity": "中程度",
