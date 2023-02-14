@@ -8,7 +8,7 @@
         {
             "category": "Segurança",
             "description": "O Barramento de Serviço Premium do Azure fornece criptografia de dados em repouso. Se você usar sua própria chave, os dados ainda serão criptografados usando a chave gerenciada pela Microsoft, mas, além disso, a chave gerenciada pela Microsoft será criptografada usando a chave gerenciada pelo cliente. ",
-            "guid": "87af4a79-1f89-439b-ba47-768e14c11567",
+            "guid": "87af4a79-1f89-439b-ba47-768a14c11567",
             "link": "https://learn.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key",
             "severity": "Baixo",
             "subcategory": "Proteção de Dados",
@@ -87,7 +87,8 @@
         }
     ],
     "metadata": {
-        "name": "Azure Service Bus Review"
+        "name": "Azure Service Bus Review",
+        "state": "Preview"
     },
     "severities": [
         {
