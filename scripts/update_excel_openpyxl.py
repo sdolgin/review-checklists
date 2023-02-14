@@ -46,7 +46,7 @@ technology = args.technology
 
 # Constants
 worksheet_checklist_name = 'Checklist'
-row1 = 8        # First row after which the Excel spreadsheet will be updated
+row1 = 10        # First row after which the Excel spreadsheet will be updated
 col_checklist_name = "A"
 row_checklist_name = "4"
 guid_column_index = "L"
