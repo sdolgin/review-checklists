@@ -103,7 +103,7 @@
         },
         {
             "category": "Segurança",
-            "description": "As contas de armazenamento recém-criadas são criadas usando o modelo de implantação do ARM, de modo que o RBAC, a auditoria etc. estão todos habilitados. Verifique se não há contas de armazenamento antigas com o modelo de implantação clássico em uma assinatura",
+            "description": "As contas de armazenamento recém-criadas são criadas usando o modelo de implantação do ARM, para que o RBAC, a auditoria, etc., sejam todos habilitados. Verifique se não há contas de armazenamento antigas com o modelo de implantação clássico em uma assinatura",
             "guid": "30e37c3e-2971-41b2-963c-eee079b598de",
             "link": "https://learn.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts",
             "severity": "Média",
