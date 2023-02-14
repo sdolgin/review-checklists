@@ -23,7 +23,7 @@
       "category": "Security", "subcategory": " Overview",
       "text": "Consider the 'Azure security baseline for storage'",
       "description": "Apply guidance from the Microsoft cloud security benchmark related to Storage",
-      "guid": "d237de14-3b16-4c21-b7aa-9b64604489a8",
+      "guid": "d237de14-3b16-4c21-b7aa-9b64604509a8",
       "severity": "Medium",
       "link": "https://learn.microsoft.com/security/benchmark/azure/baselines/storage-security-baseline"
     },
