@@ -4,7 +4,7 @@
             "category": "Identity and Access",
             "subcategory": "Identity",
             "text": "Implement for emergency access or break-glass accounts to prevent tenant-wide account lockout",
-            "guid": "984a859c-773e-47d2-9162-3a765a917e1f",
+            "guid": "984a859c-772f-47d2-9162-3a765a917e1f",
             "severity": "High",
             "training": "https://learn.microsoft.com/learn/modules/azure-ad-privileged-identity-management/",
             "link": "https://learn.microsoft.com/azure/active-directory/roles/security-emergency-access"
