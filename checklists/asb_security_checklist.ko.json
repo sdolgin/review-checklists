@@ -12,7 +12,7 @@
             "link": "https://learn.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key",
             "severity": "낮다",
             "subcategory": "데이터 보호",
-            "text": "필요한 경우 미사용 데이터 암호화에서 고객 관리형 키 옵션 사용",
+            "text": "필요한 경우 미사용 데이터 암호화에서 고객 관리형 키 옵션 사용 ",
             "training": "https://learn.microsoft.com/learn/modules/plan-implement-administer-conditional-access/"
         },
         {
