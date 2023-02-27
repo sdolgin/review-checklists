@@ -12,7 +12,7 @@
             "link": "https://learn.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key",
             "severity": "Bajo",
             "subcategory": "Protección de datos",
-            "text": "Usar la opción de clave administrada por el cliente en el cifrado de datos en reposo cuando sea necesario ",
+            "text": "Usar la opción de clave administrada por el cliente en el cifrado de datos en reposo cuando sea necesario",
             "training": "https://learn.microsoft.com/learn/modules/plan-implement-administer-conditional-access/"
         },
         {
