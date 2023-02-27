@@ -112,3 +112,5 @@ jobs:
           # body: '${{ steps.translator.outputs.summary-details }}'
           title: 'Automatic translation of ${{ steps.files.outputs.all }}'
           body: 'Processed changed files ${{ steps.files.outputs.all }}'
+          token: ${{ secrets.PAT_FOR_PR }}
+          
