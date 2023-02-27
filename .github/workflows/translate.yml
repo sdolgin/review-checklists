@@ -1,7 +1,7 @@
 name: Translation
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.PAT_FOR_PR }}
   
 on:
   # pull_request:
