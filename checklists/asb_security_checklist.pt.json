@@ -12,7 +12,7 @@
             "link": "https://learn.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key",
             "severity": "Baixo",
             "subcategory": "Proteção de Dados",
-            "text": "Usar a opção de chave gerenciada pelo cliente na criptografia de dados em repouso quando necessário",
+            "text": "Usar a opção de chave gerenciada pelo cliente na criptografia de dados em repouso quando necessário ",
             "training": "https://learn.microsoft.com/learn/modules/plan-implement-administer-conditional-access/"
         },
         {
@@ -87,7 +87,9 @@
         }
     ],
     "metadata": {
-        "name": "Azure Service Bus Review"
+        "name": "Azure Service Bus Review",
+        "state": "Preview",
+        "timestamp": "Feb 10, 2023"
     },
     "severities": [
         {

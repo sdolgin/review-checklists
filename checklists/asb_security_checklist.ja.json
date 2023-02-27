@@ -87,7 +87,9 @@
         }
     ],
     "metadata": {
-        "name": "Azure Service Bus Review"
+        "name": "Azure Service Bus Review",
+        "state": "Preview",
+        "timestamp": "Feb 10, 2023"
     },
     "severities": [
         {
