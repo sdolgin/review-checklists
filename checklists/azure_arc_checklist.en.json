@@ -406,6 +406,38 @@
     }
   ],
   "categories": [
+    {
+      "name": "Foundation"
+    },
+    {
+      "name": "Identity"
+    },
+    {
+      "name": "Networking"
+    },
+    {
+      "name": "Security, Governance and Compliance"
+    },
+    {
+      "name": "Management and Monitoring"
+    }
+  ],
+  "waf": [
+    {
+      "name": "Reliability"
+    },
+    {
+      "name": "Security"
+    },
+    {
+      "name": "Cost"
+    },
+    {
+      "name": "Operations"
+    },
+    {
+      "name": "Performance"
+    }
   ],
   "status": [
     {
@@ -441,7 +473,9 @@
     }
   ],
   "metadata": {
-    "name": "Use the 'Import latest checklist' button to get the latest version of a review checklist"
+    "name": "Azure Arc Review",
+    "state": "Preview",
+    "timestamp": "04/04/2023 08:39:00"
   }
 }
 
